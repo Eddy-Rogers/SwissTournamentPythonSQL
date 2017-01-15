@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS tournament;
-/*Drops the database if it exists to avoid any problemts*/
+/*Drops the database if it exists to avoid any problems*/
 
 CREATE DATABASE tournament;
 /*Creates a database named tournament*/
@@ -41,6 +41,8 @@ It will look something like this:
 */
 
 CREATE VIEW standings AS
+        SELECT players.player_id, players.name
+        FROM players
 
 /*Creates a view names standings which contains 4 columns: The players' IDs, from table players,
                                                            The players' names, also from table players,

@@ -112,14 +112,14 @@ def swissPairings():
     query = ("SELECT player_id, name \
                 FROM standings ORDER BY total_wins DESC;")
     c.execute(query)
-    win_pair_list = c.fetchall()
+    pair_list = c.fetchall()
 
-    if len(win_pair_list) % 2 == 0:
-        for i in range(0, len(win_pair_list), 2):
-            collect_players = win_pair_list[i][0], win_pair_list[i][1], \
-                              win_pair_list[i+1][0], win_pair_list[i+1][1]
+    if len(pair_list) % 2 == 0:
+        for i in range(0, len(pair_list), 2):
+            collect_players = pair_list[i][0], pair_list[i][1], \
+                              pair_list[i+1][0], pair_list[i+1][1]
             pair.append(collect_players)
         return pair
 
     else:
-        print "There are an uneven number of players in the tournament."
+        print "There are an uneven number of players in the tournament"

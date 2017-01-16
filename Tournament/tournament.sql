@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS tournament;
-/*Drops the database if it exists to avoid any problems*/
+/*Drops the database if it exists to avoid any problemts*/
 
 CREATE DATABASE tournament;
 /*Creates a database named tournament*/
@@ -41,8 +41,18 @@ It will look something like this:
 */
 
 CREATE VIEW standings AS
-        SELECT players.player_id, players.name
-        FROM players
+SELECT players.player_id, players.name,
+(SELECT count(matches.winner)
+    FROM matches
+    WHERE players.player_id = matches.winner)
+    AS total_wins,
+(SELECT count(matches.match_id)
+    FROM matches
+    WHERE players.player_id = matches.winner
+    OR players.player_id = matches. loser)
+    AS total_matches
+FROM players
+ORDER BY total_wins DESC, total_matches DESC;
 
 /*Creates a view names standings which contains 4 columns: The players' IDs, from table players,
                                                            The players' names, also from table players,
@@ -56,3 +66,4 @@ player_id |      name        |   total_wins    |   total_matches    |
         2 | Jed Rogers       |              0  |                 0  |
         3 | Seth Grinstead   |              0  |                 0  |
         4 | Mitchell Joram   |              0  |                 0  |
+*/

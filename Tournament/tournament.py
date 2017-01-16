@@ -122,4 +122,4 @@ def swissPairings():
         return pair
 
     else:
-        print "There are an uneven number of players in the tournament"
+        print "There are an odd number of players in the tournament"

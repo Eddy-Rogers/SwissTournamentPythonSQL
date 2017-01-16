@@ -1,4 +1,4 @@
-How to access and use the files in this github repo:
+How to access and use the files in this github repository:
 
 1.) If you dont have them already, download VirtualBox (made by Oracle) and Vagrant(made by HashiCorp).
 2.) Place the Tournament folder (located in this GitHub repo) in an easily available spot.
